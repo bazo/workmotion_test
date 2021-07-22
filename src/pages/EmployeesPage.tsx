@@ -48,6 +48,7 @@ const EmployeesPage = () => {
 	});
 
 	const handleSubmit = ({ name }: FormValues) => {
+		onClose();
 		createMutation.mutate({
 			name,
 		});
