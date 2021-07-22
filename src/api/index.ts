@@ -1,4 +1,4 @@
-import { Employee, EmployeeStatus } from "./types";
+import { Employee } from "./types";
 
 export async function fetchEmployees(): Promise<Employee[]> {
 	const response = await fetch("/employees", {
@@ -23,7 +23,7 @@ export async function createEmployee({ name }: Partial<Employee>): Promise<Emplo
 	return response.json();
 }
 
-export async function updateEmployee({ id, data }: { id: number; data: Omit<Partial<Employee>, "id"> }): Promise<Employee | void> {
+export async function updateEmployee({ id, data }: { id: number; data: Omit<Partial<Employee>, "id"> }): Promise<Employee> {
 	const response = await fetch(`/employees/${id}`, {
 		method: "PATCH",
 		headers: {
@@ -32,5 +32,5 @@ export async function updateEmployee({ id, data }: { id: number; data: Omit<Part
 		body: JSON.stringify(data),
 	});
 
-	//return response.json();
+	return response.json();
 }
