@@ -6,9 +6,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 
 async function prepare() {
-	if (import.meta.env.DEV) {
-		return worker.start();
-	}
+	return worker.start();
 }
 
 prepare().then(() => {
