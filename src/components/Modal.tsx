@@ -6,14 +6,15 @@ interface ModalProps {
 	onClose: () => void;
 	body: ReactNode;
 	buttons?: ReactNode[];
+	title?: string;
 }
 
-const Modal: VFC<ModalProps> = ({ isOpen, onClose, body, buttons = [] }) => {
+const Modal: VFC<ModalProps> = ({ isOpen, onClose, body, buttons = [], title = "" }) => {
 	return (
 		<BaseModal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
 			<ModalOverlay />
 			<ModalContent>
-				<ModalHeader>Modal Title</ModalHeader>
+				<ModalHeader>{title}</ModalHeader>
 				<ModalCloseButton />
 				<ModalBody>{body}</ModalBody>
 

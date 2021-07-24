@@ -78,6 +78,7 @@ const EmployeesPage = () => {
 
 			<EmployeesTable employees={employees} onStatusChange={handleStatusChange} />
 			<Modal
+				title="Add employee"
 				isOpen={isOpen}
 				onClose={onClose}
 				body={<EmployeeForm<FormValues> onSubmit={handleSubmit} submitRef={submitRef} />}
